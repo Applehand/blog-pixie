@@ -1,14 +1,14 @@
-# Blog Image Tool 
-## P.I.X.I.E: Practical Image eXporter with Instant Editing
-## B.L.I.S.S: Blog Image Shaping & Sizing
+# Blog Image Editing Tool 
+## P.I.X.I.E:
+- Practical Image eXchange with Instant Editing
 
 ## Tech
 
 - React
 - Cropperjs
 
-
 ## Functional requirements:
+
 - Upload image
 - Crop image
 - Lock aspect ratio
