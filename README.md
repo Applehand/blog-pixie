@@ -39,3 +39,15 @@
 - Crop Width
 - Crop Height
 - Export File Name
+
+## React Components?
+
+- Header
+- PIXIE
+    - Image Container
+        - Image Upload
+            - Drag n Drop
+        - Cropper
+    - Input box
+    - Image Export 
+- footer
