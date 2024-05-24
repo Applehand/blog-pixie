@@ -14,3 +14,28 @@
 - Lock aspect ratio
 - Resize image
 - Rename image during export
+- An x button to clear current image
+
+## Workflow/UX
+
+- User drags and drops an image onto a large rectangle container
+- The image appears within the image container
+- If toggled, A draggable cropping rectangle appears within the image container
+- The following values populate within inputs below the image container and automatically update:
+    - Current Image Dimensions
+    - Cropping Rectangle Dimensions
+    - Aspect Ratio
+- User inputs target dimensions by dragging the rectangle, or editing text fields
+- User names the final file name
+- User exports final image
+
+## Inputs/Variables
+
+- Image Width
+- Image Height
+- Aspect Ratio
+- Crop PosX
+- Crop PosY
+- Crop Width
+- Crop Height
+- Export File Name
