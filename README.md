@@ -21,7 +21,7 @@
 - User drags and drops an image onto a large rectangle container
 - The image appears within the image container
 - If toggled, A draggable cropping rectangle appears within the image container
-- The following values populate within inputs below the image container and automatically update:
+- The following reactive values populate within inputs below the image container:
     - Current Image Dimensions
     - Cropping Rectangle Dimensions
     - Aspect Ratio
