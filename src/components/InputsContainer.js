@@ -1,7 +1,10 @@
 import { Input}  from "../components/Input"
 
-export function InputsContainer() {
-
+export function InputsContainer({ cropperToggled, setCropperToggled }) {
+    const handleCropToggleChange = (e) => {
+        console.log('Received value:', e.target.checked);
+        setCropperToggled(e.target.checked);
+      };
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -10,6 +13,7 @@ export function InputsContainer() {
     
     return (
         <form onSubmit={handleSubmit}>
+            <div id="resize-container">
             <label>RESIZE
                 <ul>
                     <li>
@@ -23,10 +27,14 @@ export function InputsContainer() {
                     </li>
                 </ul>
             </label>
-            <div>
-                <Input type="checkbox" label="Crop Toggle" />
             </div>
+
+            <div id="crop-container">
             <label>CROP
+                <div>
+                    <Input type="checkbox" id="crop-toggle" label="Crop Toggle" defaultChecked={cropperToggled} onChange={handleCropToggleChange} />
+                </div>
+            
                 <ul>
                     <li>
                         <Input type="number" label="Height:"/>
@@ -34,14 +42,9 @@ export function InputsContainer() {
                     <li>
                         <Input type="number" label="Width:"/>
                     </li>
-                    <li>
-                        <Input type="number" label="posX:"/>
-                    </li>
-                    <li>
-                        <Input type="number" label="posY:"/>
-                    </li>
                 </ul>
             </label>
+            </div>
             <div>
                 <Input type="text" label="Filename:"/>
             </div>

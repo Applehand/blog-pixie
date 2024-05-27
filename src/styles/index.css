@@ -12,6 +12,6 @@ code {
     monospace;
 }
 
-div {
-    border: 1px solid red;
+form {
+  display: flex;
 }

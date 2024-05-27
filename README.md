@@ -56,8 +56,7 @@ npm start
 - Header
 - PIXIE
     - Image Container
-        - Image Upload
-            - Drag n Drop
+        - Resizer
         - Cropper
     - Inputs Container
     - Image Export 
