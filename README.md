@@ -5,7 +5,9 @@
 ## Development
 **Dependencies**
 - Node.js
+
 **Running Locally**
+
 To get running locally, jump into your terminal:
 ```
 git clone https://github.com/Applehand/blog-pixie.git
