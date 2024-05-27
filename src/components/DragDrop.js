@@ -1,6 +1,3 @@
 export default function DragDrop() {
-    return (
-        <div>
-        </div>
-    )
-  }
+  return <div></div>;
+}

@@ -1,14 +1,19 @@
-# Blog Image Editing Tool 
+# Blog Image Editing Tool
+
 ## P.I.X.I.E:
+
 - Practical Image eXchange with Instant Editing
 
 ## Development
+
 **Dependencies**
+
 - Node.js
 
 **Running Locally**
 
 To get running locally, jump into your terminal:
+
 ```
 git clone https://github.com/Applehand/blog-pixie.git
 cd blog-pixie
@@ -35,9 +40,9 @@ npm start
 - The image appears within the image container
 - If toggled, A draggable cropping rectangle appears within the image container
 - The following reactive values populate within inputs below the image container:
-    - Current Image Dimensions
-    - Cropping Rectangle Dimensions
-    - Aspect Ratio
+  - Current Image Dimensions
+  - Cropping Rectangle Dimensions
+  - Aspect Ratio
 - User inputs target dimensions by dragging the rectangle, or editing text fields
 - User names the final file name
 - User exports final image
@@ -57,9 +62,10 @@ npm start
 
 - Header
 - PIXIE
-    - Image Container
-        - Resizer
-        - Cropper
-    - Inputs Container
-    - Image Export 
+  - Image Container
+    - Resizer
+    - Cropper
+  - Inputs Container
+    - Input
+  - Image Export
 - Footer

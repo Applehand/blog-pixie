@@ -1,5 +1,3 @@
-export function ImageExport() {
-    return (
-        <button>EXPORT</button>
-    )
-  }
+export function ImageExport({ image, filename }) {
+  return <button>EXPORT</button>;
+}
