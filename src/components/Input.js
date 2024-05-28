@@ -8,9 +8,15 @@ export function Input({ type, label, value, defaultChecked, onChange }) {
           value={value}
           defaultChecked={defaultChecked}
           onChange={onChange}
+          data-name={label}
         />
       ) : (
-        <input type={type} value={value} onChange={onChange} />
+        <input
+          type={type}
+          value={value}
+          onChange={onChange}
+          data-name={label}
+        />
       )}
     </label>
   );

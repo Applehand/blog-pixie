@@ -5,17 +5,27 @@ export function FormContainer({
   cropperToggled,
   setCropperToggled,
   onImageUpdate,
+  onCrop,
+  setFinalImage,
 }) {
-  const handleHeightChange = (e) => {
-    const newHeight = e.target.value;
-    const newAspectRatio = image.width / newHeight;
-    onImageUpdate({ image, height: newHeight, aspectRatio: newAspectRatio });
-  };
+  const handleInputChange = (e) => {
+    const newValue = parseFloat(e.target.value);
+    const isWidthInput =
+      e.target.getAttribute("data-input") === "Resize Width:";
 
-  const handleWidthChange = (e) => {
-    const newWidth = e.target.value;
-    const newAspectRatio = newWidth / image.height;
-    onImageUpdate({ image, width: newWidth, aspectRatio: newAspectRatio });
+    const aspectRatio = image.width / image.height;
+    const updatedImage = new Image();
+    updatedImage.onload = () => {
+      if (isWidthInput) {
+        updatedImage.width = newValue;
+        updatedImage.height = Math.round(newValue / aspectRatio);
+      } else {
+        updatedImage.width = Math.round(newValue * aspectRatio);
+        updatedImage.height = newValue;
+      }
+      onImageUpdate(updatedImage);
+    };
+    updatedImage.src = image.src;
   };
 
   const handleCropToggleChange = (e) => {
@@ -24,6 +34,12 @@ export function FormContainer({
 
   const handleSubmit = (event) => {
     event.preventDefault();
+  };
+
+  const handleCrop = () => {
+    if (cropperToggled) {
+      onCrop();
+    }
   };
 
   return (
@@ -35,17 +51,17 @@ export function FormContainer({
             <li>
               <Input
                 type="number"
-                label="Height:"
+                label="Resize Height:"
                 value={image ? image.height : ""}
-                onChange={handleHeightChange}
+                onChange={handleInputChange}
               />
             </li>
             <li>
               <Input
                 type="number"
-                label="Width:"
+                label="Resize Width:"
                 value={image ? image.width : ""}
-                onChange={handleWidthChange}
+                onChange={handleInputChange}
               />
             </li>
             <li>
@@ -70,6 +86,9 @@ export function FormContainer({
               defaultChecked={cropperToggled}
               onChange={handleCropToggleChange}
             />
+            <button type="button" onClick={handleCrop}>
+              Crop Current Selection
+            </button>
           </div>
           <ul>
             <li>
@@ -85,7 +104,7 @@ export function FormContainer({
         <Input type="text" label="Filename:" />
       </div>
 
-      <input type="submit" />
+      <input type="submit" formMethod="post" onSubmit={setFinalImage} />
     </form>
   );
 }

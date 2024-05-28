@@ -24,6 +24,7 @@ npm start
 ## Tech
 
 - React
+- CropperJS
 
 ## Functional requirements:
 
@@ -52,8 +53,6 @@ npm start
 - Image Width
 - Image Height
 - Aspect Ratio
-- Crop PosX
-- Crop PosY
 - Crop Width
 - Crop Height
 - Export File Name

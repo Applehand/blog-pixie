@@ -18,6 +18,14 @@ export function Pixie() {
     setImage(updatedImage);
   };
 
+  const handleCrop = (cropData) => {
+    setImage(cropData);
+  };
+
+  const handleSaveFinalImage = (savedFinalImage) => {
+    setFinalImage(savedFinalImage);
+  };
+
   let filename;
 
   return (
@@ -27,7 +35,7 @@ export function Pixie() {
         image={image}
         cropperToggled={cropperToggled}
         onImageUpload={handleImageUpload}
-        setFinalImage={setFinalImage}
+        onCrop={handleCrop}
       />
       <FormContainer
         id="FormContainer"
@@ -35,6 +43,8 @@ export function Pixie() {
         cropperToggled={cropperToggled}
         setCropperToggled={setCropperToggled}
         onImageUpdate={handleImageUpdate}
+        onCrop={handleCrop}
+        setFinalImage={handleSaveFinalImage}
       />
       <ImageExport id="ImageExport" image={finalImage} filename={filename} />
     </div>

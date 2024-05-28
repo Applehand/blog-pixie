@@ -12,7 +12,7 @@ export function Cropper({ image, onCrop }) {
       cropperRef.current = new Cropper(imgElement, {
         aspectRatio: 16 / 9,
         crop(event) {
-          console.log(event.detail);
+          // onCrop(event);
         },
       });
     }
@@ -22,7 +22,7 @@ export function Cropper({ image, onCrop }) {
         cropperRef.current.destroy();
       }
     };
-  }, [image]);
+  }, [image, onCrop]);
 
   return <img ref={imageRef} src={image.src} />;
 }

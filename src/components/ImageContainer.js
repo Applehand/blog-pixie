@@ -1,31 +1,42 @@
 import { Cropper } from "./Cropper";
 import { Resizer } from "./Resizer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/ImageContainer.css";
 
 export function ImageContainer({
   image,
   onImageUpload,
   cropperToggled,
-  setFinalImage,
+  onCrop,
 }) {
   const [croppedImage, setCroppedImage] = useState(null);
 
+  useEffect(() => {
+    if (!cropperToggled) {
+      setCroppedImage(null);
+    }
+  }, [cropperToggled]);
+
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    handleImageUpload(file);
-  };
-
-  const handleImageUpload = async (file) => {
     const img = new Image();
     img.onload = () => {
+      console.log("Image loaded:", img);
       onImageUpload(img);
     };
     img.src = URL.createObjectURL(file);
   };
 
   const handleCrop = (croppedImageData) => {
-    setCroppedImage(croppedImageData);
+    console.log("Cropped image data:", croppedImageData);
+    const croppedImg = new Image();
+    croppedImg.onload = () => {
+      croppedImg.width = croppedImageData.width;
+      croppedImg.height = croppedImageData.height;
+      setCroppedImage(croppedImg);
+      onCrop(croppedImg);
+    };
+    croppedImg.src = image.src;
   };
 
   let imageComponent;
@@ -43,11 +54,12 @@ export function ImageContainer({
           />
         );
       } else {
+        const displayImage = croppedImage || image;
         imageComponent = (
           <Resizer
-            image={image}
-            newHeight={image.height}
-            newWidth={image.width}
+            image={displayImage}
+            newHeight={displayImage.height}
+            newWidth={displayImage.width}
           />
         );
       }
