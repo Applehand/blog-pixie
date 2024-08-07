@@ -1,4 +1,5 @@
 body {
+  background-color: aliceblue;
   margin: 0;
   text-align: center;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -16,25 +17,24 @@ code {
 #canvas-container {
   background-color: #717171;
   position: relative;
-  height: 400px;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #canvas-container.dragover {
   background-color: gold;
 }
 
-#inputs-container {
-  margin:0.5rem;
-}
-
-#inputs-container > * {
-  margin: 0.25rem;
-}
-
 canvas {
   position: absolute;
-  top: 0;
-  left: 0;
+}
+
+#clear-image-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
 }
 
 #source-canvas {
@@ -49,3 +49,20 @@ canvas {
   display: none;
 }
 
+#inputs-container {
+  margin: 0.5rem;
+}
+
+#inputs-container > * {
+  margin: 0.25rem;
+}
+
+a {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: gold;
+}
